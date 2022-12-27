@@ -1,10 +1,4 @@
 
 
-def flip(bool):
-    return not bool
-
-
-# d = True
-d = False
-
-print(flip(d))
+squares = [i**2 for i in range(10)]
+print(squares)
