@@ -1,0 +1,1 @@
+This is a sampler text contabcining the string abc in some words
