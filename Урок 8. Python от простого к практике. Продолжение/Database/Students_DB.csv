@@ -1,10 +1,10 @@
-id,First Name,Middle Name,Age,Class
-1,Маша,Петрова,19,
-2,Егор,Дубов,20,
-3,Виктор,Красов,19,
-4,Лера,Пёрышкина,18,
-5,Пётр,Иванов,17,
-6,Протон,Бойко,18,
-7,Ксения,Димитров,18,
-8,Иван,Смоленцев,19,
-9,Иван,Асланов,21,
+First Name,Middle Name,Age,Class
+Igor,,19,
+marta,,20,
+Irina,Krasnaya,19,
+Daniel,,18,
+Vasiliy,Egorov,17,
+,,18,
+Miron,,19,
+,,21,
+vasya,Vasin,20

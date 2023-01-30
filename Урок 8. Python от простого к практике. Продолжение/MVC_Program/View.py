@@ -1,37 +1,38 @@
 from tabulate import tabulate
 import os
-from Controller import Cabinets_DB, Classes_DB, Students_DB, Teachers_DB
-
-
-def clear(): return os.system('cls')
-
-
-a_database = [312, "fda"]
+# from Data import Cabinets_DB, Classes_DB, Students_DB, Teachers_DB
+import Data
 
 
 def do_ui():
-    clear()
+    """ def clear(): return os.system('cls')
+    clear() """
+    """ os.system('cls') """
     print(">>> MY COLLEGE DATABASE <<<")
+    
     print(">> Students <<")
-    print(tabulate(Students_DB,
+    print(tabulate(Data.Students_DB,
                    headers="firstrow",
                    tablefmt='orgtbl',
                    showindex="always",
                    missingval="---"))
+    
     print(">> Teachers <<")
-    print(tabulate(Teachers_DB,
+    print(tabulate(Data.Teachers_DB,
                    headers="firstrow",
                    tablefmt='orgtbl',
                    showindex="always",
                    missingval="---"))
+    
     print(">> Cabinets <<")
-    print(tabulate(Cabinets_DB,
+    print(tabulate(Data.Cabinets_DB,
                    headers="firstrow",
                    tablefmt='orgtbl',
                    showindex="always",
                    missingval="---"))
+    
     print(">> Classes  <<")
-    print(tabulate(Classes_DB,
+    print(tabulate(Data.Classes_DB,
                    headers="firstrow",
                    tablefmt='orgtbl',
                    showindex="always",
@@ -44,3 +45,4 @@ def do_ui():
     print("4 - print_object_stats")
     print("5 - load phonebook")
     print("0 - exit_programm")
+    print("99 - pass_program")

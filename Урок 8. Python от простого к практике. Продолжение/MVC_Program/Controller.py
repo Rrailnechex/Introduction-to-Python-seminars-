@@ -1,44 +1,51 @@
-import random
+import os
 import Debug
 import csv
+import Data
+
+# 5_Знакомство с языком Python\Урок 8. Python от простого к практике. Продолжение\Database\Students_DB.csv
+
+
+def simple_load_from_csv(load_directory, file_name):
+    Debug.simple_debug("simple_load_from_csv(load_directory, file_name):")
+
+    file_path = os.path.join(load_directory, file_name)
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        return list(reader)
+
+
+def simple_save_to_csv(save_directory, file_name, data):
+    Debug.simple_debug("simple_save_to_csv(save_directory, file_name, data):")
+
+    file_path = os.path.join(save_directory, file_name)
+    with open(file_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(data)
 
 
 def load_csv():
-    global Cabinets_DB, Classes_DB, Students_DB, Teachers_DB
+    Debug.simple_debug("load_csv():")
 
-    with open('Cabinets_DB.csv', 'r') as file:
-        reader = csv.reader(file)
-        Cabinets_DB = list(reader)
+    path_to_save_load = "5_Знакомство с языком Python\Урок 8. Python от простого к практике. Продолжение\Database"
 
-    with open('Classes_DB.csv', 'r') as file:
-        reader = csv.reader(file)
-        Classes_DB = list(reader)
+    Teachers_DB = simple_load_from_csv(path_to_save_load, Teachers_DB)
+    Students_DB = simple_load_from_csv(path_to_save_load, Students_DB)
+    Cabinets_DB = simple_load_from_csv(path_to_save_load, Cabinets_DB)
+    Classes_DB = simple_load_from_csv(path_to_save_load, Classes_DB)
 
-    with open('Students_DB.csv', 'r') as file:
-        reader = csv.reader(file)
-        Students_DB = list(reader)
-
-    with open('Teachers_DB.csv', 'r') as file:
-        reader = csv.reader(file)
-        Teachers_DB = list(reader)
+    return Cabinets_DB, Classes_DB, Students_DB, Teachers_DB
 
 
-def save_csv():
-    with open('Cabinets_DB.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(Cabinets_DB)
+def save_csv(Cabinets_DB, Classes_DB, Students_DB, Teachers_DB):
+    Debug.simple_debug("def add_object():")
 
-    with open('Classes_DB.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(Classes_DB)
+    path_to_save_load = "5_Знакомство с языком Python\Урок 8. Python от простого к практике. Продолжение\Database"
 
-    with open('Students_DB.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(Students_DB)
-
-    with open('Teachers_DB.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(Teachers_DB)
+    simple_save_to_csv(path_to_save_load, "Teachers_DB", Teachers_DB)
+    simple_save_to_csv(path_to_save_load, "Students_DB", Students_DB)
+    simple_save_to_csv(path_to_save_load, "Cabinets_DB", Cabinets_DB)
+    simple_save_to_csv(path_to_save_load, "Classes_DB", Classes_DB)
 
 
 def main_controller():
@@ -53,6 +60,8 @@ def main_controller():
         print_object_stats()
     elif n_of_op == 0:
         exit_programm()
+    elif n_of_op == 99:
+        pass_program()
     else:
         print("***wrong operation***")
         main_controller()
@@ -90,3 +99,8 @@ def print_object_stats():
 def exit_programm():  # 0
     Debug.simple_debug("def exit_programm():")
     exit()
+
+
+def pass_program():
+    Debug.simple_debug("def pass_program():")
+    pass
